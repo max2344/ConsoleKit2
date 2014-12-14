@@ -1,3 +1,13 @@
+consolekit2 (0.9.2-1) unstable; urgency=medium
+
+  * update changelog
+  * update version
+  * take over maintenance
+  * convert to consolekit2
+  * add consolekit as transitional package
+
+ -- Dimitri Puzin <max@psycast.de>  Sun, 14 Dec 2014 20:18:25 +0100
+
 consolekit (0.9.2-1+nosystemd1) unstable; urgency=medium
 
   * Initial deb-packaged build from consolekit2 (0.9.2) original source

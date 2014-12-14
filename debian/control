@@ -1,7 +1,7 @@
-Source: consolekit
+Source: consolekit2
 Section: admin
 Priority: optional
-Maintainer: Robert Millan <rmh@debian.org>
+Maintainer: Dimitri Puzin <max@psycast.de>
 Build-Depends: debhelper (>= 9),
  autotools-dev,
  pkg-config,
@@ -18,25 +18,29 @@ Build-Depends: debhelper (>= 9),
  libbsd-dev (>= 0.3.0~) [kfreebsd-any],
  dh-autoreconf
 Standards-Version: 3.9.5
-Vcs-Git: git://git.debian.org/git/pkg-utopia/consolekit.git
-Vcs-Browser: http://git.debian.org/?p=pkg-utopia/consolekit.git;a=summary
-Homepage: http://www.freedesktop.org/wiki/Software/ConsoleKit
 
-Package: consolekit
+Package: consolekit2
 Section: admin
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libck-connector0 (= ${binary:Version}), dbus (>= 1.1.2)
 Recommends: libpam-ck-connector
-Breaks: udev (<< 204-1)
-Replaces: udev (<< 204-1)
+Breaks: udev (<< 204-1), consolekit (<< 0.9.2-1)
+Replaces: udev (<< 204-1), consolekit (<< 0.9.2-1)
 Description: framework for defining and tracking users, sessions and seats
- ConsoleKit is a system daemon for tracking what users are logged
+ ConsoleKit2 is a system daemon for tracking what users are logged
  into the system and how they interact with the computer (e.g.
  which keyboard and mouse they use).
  .
  It provides asynchronous notification via the system message bus.
  .
  This package provides the system daemon and tools to interact with it.
+
+Package: consolekit
+Depends: consolekit2, ${misc:Depends}
+Architecture: all
+Priority: extra
+Section: oldlibs
+Description: transitional dummy package for consolekit2
 
 Package: libck-connector0
 Section: libs
@@ -45,19 +49,19 @@ Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ConsoleKit libraries
- ConsoleKit is a system daemon for tracking what users are logged
+ ConsoleKit2 is a system daemon for tracking what users are logged
  into the system and how they interact with the computer (e.g.
  which keyboard and mouse they use).
  .
  This package provides a convenience library which simplifies the access to
- ConsoleKit.
+ ConsoleKit2.
 
 Package: libck-connector-dev
 Section: libdevel
 Architecture: any
 Depends: libck-connector0 (= ${binary:Version}), ${misc:Depends}, libdbus-1-dev
 Description: ConsoleKit development files
- ConsoleKit is a system daemon for tracking what users are logged
+ ConsoleKit2 is a system daemon for tracking what users are logged
  into the system and how they interact with the computer (e.g.
  which keyboard and mouse they use).
  .
@@ -69,7 +73,7 @@ Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}, libck-connector0 (= ${binary:Version}), libpam-runtime (>= 1.0.1-6)
 Description: ConsoleKit PAM module
- ConsoleKit is a system daemon for tracking what users are logged
+ ConsoleKit2 is a system daemon for tracking what users are logged
  into the system and how they interact with the computer (e.g.
  which keyboard and mouse they use).
  .
